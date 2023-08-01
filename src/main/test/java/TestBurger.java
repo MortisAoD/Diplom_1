@@ -16,14 +16,17 @@ import static praktikum.IngredientType.FILLING;
 
 public class TestBurger {
 
+    Bun bun;
+    Burger burger = new Burger();
+    Ingredient ingredient;
+
+    @Mock
+    private Bun mockBun;
+
     @Before
     public void init() {
         MockitoAnnotations.openMocks(this);
     }
-
-    Bun bun;
-    Burger burger = new Burger();
-    Ingredient ingredient;
 
     @Test
     public void testSetBuns() {
@@ -56,9 +59,6 @@ public class TestBurger {
         burger.moveIngredient(0,1);
         assertEquals("Тест для метода moveIngredient()", ingredientIndexZero, burger.ingredients.get(1));
     }
-
-    @Mock
-    private Bun mockBun;
 
     @Test
     public void testGetPrice() {
